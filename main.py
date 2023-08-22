@@ -21,7 +21,7 @@ def generate_new_number():
     global correct_number
     correct_number = random.randint(0, 100)
     result_label.config(text="")
-    random_number_label.config(text="Número aleatorio: " + num2words(correct_number, lang='es'))
+    random_number_label.config(text="Número aleatorio: " + str(correct_number))
     options = generate_random_options(correct_number)
     for i, option in enumerate(options):
         option_buttons[i].config(text=num2words(option, lang='es'), command=lambda option=option: check_guess(option))
