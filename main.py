@@ -1,4 +1,5 @@
 import tkinter as tk
+# MAC does not work very well
 import random
 from num2words import num2words
 
@@ -29,6 +30,8 @@ def generate_new_number():
 # Create the main window
 root = tk.Tk()
 root.title("Juego de Adivinanza de Números")
+root.configure(bg="white")
+#root['background']='white'
 
 # Label to display the result
 result_label = tk.Label(root, text="", font=("Arial", 18))
