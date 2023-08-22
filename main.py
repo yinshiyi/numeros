@@ -23,7 +23,7 @@ def generate_new_number():
     random_number_label.config(text="Random Number: " + str(correct_number))
     options = generate_random_options(correct_number)
     for i, option in enumerate(options):
-        option_buttons[i].config(text=str(option))
+        option_buttons[i].config(text=str(option), command=lambda option=option: check_guess(option))
 
 # Create the main window
 root = tk.Tk()
@@ -41,7 +41,7 @@ correct_number = None  # Store the correct number here initially
 # Create option buttons
 option_buttons = []
 for _ in range(5):
-    option_button = tk.Button(root, text="", width=5, height=2, command=lambda: None)
+    option_button = tk.Button(root, text="", width=5, height=2)
     option_buttons.append(option_button)
     option_button.pack(side=tk.LEFT, padx=10, pady=10)
 
