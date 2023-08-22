@@ -1,8 +1,6 @@
 import tkinter as tk
 import random
-import inflect
-
-p = inflect.engine()
+from num2words import num2words
 
 def generate_random_options(correct_number):
     options = [correct_number]
@@ -15,22 +13,22 @@ def generate_random_options(correct_number):
 
 def check_guess(selected_number):
     if selected_number == correct_number:
-        result_label.config(text="Correct!")
+        result_label.config(text="¡Correcto!")
     else:
-        result_label.config(text="Incorrect! The number was " + p.number_to_words(correct_number))
+        result_label.config(text="¡Incorrecto! El número era " + num2words(correct_number, lang='es'))
 
 def generate_new_number():
     global correct_number
     correct_number = random.randint(0, 100)
     result_label.config(text="")
-    random_number_label.config(text="Random Number: " + p.number_to_words(correct_number))
+    random_number_label.config(text="Número aleatorio: " + num2words(correct_number, lang='es'))
     options = generate_random_options(correct_number)
     for i, option in enumerate(options):
-        option_buttons[i].config(text=p.number_to_words(option), command=lambda option=option: check_guess(option))
+        option_buttons[i].config(text=num2words(option, lang='es'), command=lambda option=option: check_guess(option))
 
 # Create the main window
 root = tk.Tk()
-root.title("Number Guessing Game")
+root.title("Juego de Adivinanza de Números")
 
 # Label to display the result
 result_label = tk.Label(root, text="", font=("Arial", 18))
@@ -44,12 +42,12 @@ correct_number = None  # Store the correct number here initially
 # Create option buttons
 option_buttons = []
 for _ in range(5):
-    option_button = tk.Button(root, text="", width=15, height=2)
+    option_button = tk.Button(root, text="", width=20, height=2)
     option_buttons.append(option_button)
     option_button.pack(side=tk.LEFT, padx=10, pady=10)
 
 # Button to generate a new random number
-new_number_button = tk.Button(root, text="New Number", command=generate_new_number)
+new_number_button = tk.Button(root, text="Nuevo número", command=generate_new_number)
 new_number_button.pack(pady=20)
 
 # Generate the first random number
