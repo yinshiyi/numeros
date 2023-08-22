@@ -9,8 +9,5 @@ Enjoy!
 
 TODO:
 
-currently only support, digit question, then answers in español. 
-
-To create the reverse of that.
-
-Add audio database to reinforce learning
+1. currently only support, digit question, then answers in español. To create the reverse of that.
+3. Add audio database to reinforce learning
